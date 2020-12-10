@@ -3,7 +3,7 @@ function returnsThree() {
 }
 
 function reciprocal(num) {
-	if (num < 1 || num > 1_000_000) {
+	if (num < 1 || num > 1000000) {
 		throw new TypeError();
 	}
 	return 1 / num;
