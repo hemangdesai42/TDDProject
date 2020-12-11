@@ -1,6 +1,4 @@
-function returnsThree() {
-	return 3;
-}
+const returnsThree = () => 3;
 
 function reciprocal(num) {
 	if (num < 1 || num > 1000000) throw new TypeError();
