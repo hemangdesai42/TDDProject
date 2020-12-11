@@ -21,8 +21,9 @@ class Person {
 
     const keys = Object.keys(obj);
 
-    if(keys.includes('name') && keys.includes('age')) throw new TypeError('Name and age please');
-
+    if (!(obj.hasOwnProperty('name') && obj.hasOwnProperty('age')))
+      throw new TypeError('Name and age please');    
+      
     const {name, age} = obj;
     this.name = name;
     this.age = age;
