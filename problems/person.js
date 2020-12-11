@@ -17,14 +17,34 @@ class Person {
 	}
 
 	update(obj) {
-    if (typeof obj !== 'object') throw new TypeError('Clear message');
-    
-		if ( !(obj.hasOwnProperty('name') && obj.hasOwnProperty('age')) )
-			throw new TypeError('Name and age please');
+		if (typeof obj !== 'object' || Array.isArray(obj) || obj === null)
+			throw new TypeError(`${obj} is not an object.`);
 
-		const { name, age } = obj;
-		this.name = name;
-		this.age = age;
+		if (!(obj.hasOwnProperty('name') && obj.hasOwnProperty('age')))
+			throw new TypeError(`${obj} has no name and age properties.`);
+
+		this.name = obj.name;
+		this.age = obj.age;
+	}
+
+	tryUpdate(obj) {
+		try {
+			this.update(obj);
+			return true;
+		} catch (err) {
+			// console.error(err);
+			return false;
+		}
+	}
+
+	static greetAll(people) {
+		const greetingsArray = [];
+
+		people.forEach((person) => {
+			greetingsArray.push(person.sayHello());
+		});
+
+		return greetingsArray;
 	}
 }
 
