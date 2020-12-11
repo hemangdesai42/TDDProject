@@ -1,7 +1,8 @@
-function myMap(array, callback) {
+const myMap = (array, callback) => {
     const newArr = [];
+
     array.forEach(el => {
-        newEl = callback(el)
+        const newEl = callback(el)
         newArr.push(newEl)
     });
 
