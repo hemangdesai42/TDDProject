@@ -5,7 +5,6 @@ describe('returnsThree()', () => {
 	it('should return the number three', () => {
 		let test = returnsThree();
 		let result = 3;
-
 		assert.strictEqual(test, result);
 	});
 });
@@ -21,8 +20,7 @@ describe('reciprocal(num)', () => {
 
 	context('invalid arguments', () => {
 		it('should return a TypeError if num is outside range', () => {
-			assert.throws(() => reciprocal(0), { name: 'TypeError' });
+			assert.throws(() => reciprocal(0), TypeError);
 		});
 	});
 });
- 
