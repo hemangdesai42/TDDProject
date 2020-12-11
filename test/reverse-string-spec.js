@@ -1,24 +1,18 @@
-const reverseString = require('../problems/reverse-string.js');
+const reverseString = require('../problems/reverse-string');
+const assert = require('assert').strict;
 
-const chai = require("chai");
-const spies = require("chai-spies");
-const expect = chai.expect;
-chai.use(spies);
+describe('reverseString', () => {
+	context('if the argument is a valid string', () => {
+		it('should reverse the passed in string', () => {
+			let actual = reverseString('fun');
+			let expected = 'nuf';
+			assert.deepStrictEqual(actual, expected);
+		});
+	});
 
-describe("reverseString", () => {
-    context("if the argument is a valid string", () => {
-        it("should reverse the passed in string", () => {
-            let reversed = reverseString("fun");
-            let expected = "nuf";
-
-            expect(reversed).to.equal(expected);
-        });
-    })
-
-    context("if the argument is not valid", () => {
-        it("should throw a Type Error" , () => {
-            expect(() => reverseString(5)).to.throw(TypeError); 
-        });
-    });
-    
-})
+	context('if the argument is not valid', () => {
+		it('should throw a TypeError', () => {
+			assert.throws(() => reverseString(['fun']), TypeError);
+		});
+	});
+});

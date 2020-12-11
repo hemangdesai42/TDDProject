@@ -1,6 +1,5 @@
 // chai is an assertion library
 const chai = require('chai');
-const { interface } = require('chai-spies');
 const spies = require('chai-spies');
 const Person = require('../problems/person');
 
